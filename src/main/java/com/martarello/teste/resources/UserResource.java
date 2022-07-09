@@ -1,6 +1,6 @@
 package com.martarello.teste.resources;
 
-import com.martarello.teste.entidades.User;
+import com.martarello.teste.entidades.Usuario;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserResource {
 
     @GetMapping
-    public ResponseEntity<User> findUsers(){
-        User u = new User(1L, "Matheus", "matheus@email.com", "4646464646", "1234");
+    public ResponseEntity<Usuario> findUsers(){
+        Usuario u = new Usuario(1L, "Matheus", "matheus@email.com", "4646464646", "1234");
 
         return ResponseEntity.ok().body(u);
     }

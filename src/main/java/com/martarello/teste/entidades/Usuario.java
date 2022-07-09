@@ -1,12 +1,19 @@
 package com.martarello.teste.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Objects;
 
-public class User implements Serializable {
+@Entity
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Long userId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String email;
     private String telefone;
@@ -14,23 +21,23 @@ public class User implements Serializable {
 
 
 
-    public User() {
+    public Usuario() {
     }
 
-    public User(Long userId, String nome, String email, String telefone, String senha) {
-        this.userId = userId;
+    public Usuario(Long id, String nome, String email, String telefone, String senha) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.senha = senha;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getid() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setid(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -70,14 +77,14 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User user = (User) o;
+        Usuario user = (Usuario) o;
 
-        return userId != null ? userId.equals(user.userId) : user.userId == null;
+        return id != null ? id.equals(user.id) : user.id == null;
     }
 
     @Override
     public int hashCode() {
-        return userId != null ? userId.hashCode() : 0;
+        return id != null ? id.hashCode() : 0;
     }
 
 
